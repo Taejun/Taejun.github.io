@@ -4,7 +4,7 @@
  <title>Taejun</title>
  <link href="http://taejun.githum.io/atom.xml" rel="self"/>
  <link href="http://taejun.githum.io/"/>
- <updated>2014-03-02T23:40:52+09:00</updated>
+ <updated>2014-03-02T23:44:02+09:00</updated>
  <id>http://taejun.githum.io</id>
  <author>
    <name></name>
@@ -71,7 +71,7 @@ mvn package –Pdist,native –DskipTests –Dtar
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;compiled binary file : &lt;a href=&quot;http://taejun.github.io/hadoop-2.2.0_x64.tar.gz&quot;&gt;hadoop-2.2.2-x64.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;compiled binary file : &lt;a href=&quot;http://taejun.github.io/public/hadoop-2.2.0_x64.tar.gz&quot;&gt;hadoop-2.2.0-x64.tar.gz&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h3&gt;Helpful Link&lt;/h3&gt;
 
