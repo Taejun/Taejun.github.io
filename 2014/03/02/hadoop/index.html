@@ -7,7 +7,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
 
   <title>
-    Hello, world! &middot; 
+    Hadoop src build (x64) &middot; 
     taejun.github.io
   </title>
 
@@ -49,34 +49,93 @@
 
     <div class="content container">
       <div class="post">
-  <h1>Hello, world!</h1>
-  <span class="post-date">28 Dec 2013</span>
-  <p>Welcome to <a href="http://andhyde.com">Hyde</a>, the perfect companion to <a href="http://jekyllrb.com">Jekyll</a>, the popular static site generator. Hyde is an elegant, open source, mobile first theme for Jekyll. It includes lightweight styles and placeholder content to get you up and running with a simple blog in no time.</p>
+  <h1>Hadoop src build (x64)</h1>
+  <span class="post-date">02 Mar 2014</span>
+  <p>** 기존 hadoop-2.2.0 의 경우 x86 binary만 존재 하므로, 64bit binary를 얻기위해
+MVN 이용한 hadoop build 절차 문서 입니다.</p>
 
-<h3>Features</h3>
+<p>1) Requirment</p>
 
 <ul>
-<li>Complete Jekyll setup included (layouts, config, 404, RSS feed, posts, and page)</li>
-<li><a href="https://github.com/mdo/hyde#themes">Eight optional color schemes</a>, available via <code>&lt;body&gt;</code> classes</li>
-<li>Two orientations for content and sidebar, default (left sidebar) and <a href="https://github.com/mdo/hyde#reverse-layout">reverse</a> (right sidebar), available via <code>&lt;body&gt;</code> classes</li>
-<li>Mobile first design and development, so it works great on all devices</li>
-<li>Support for a wide gamut of HTML elements</li>
-<li>Related posts (time-based, because Jekyll) below each post</li>
-<li>Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)</li>
+<li>JDK 1.7_x64 ( Oracle web site )</li>
+<li>Maven (http://maven.apache.org/download.cgi  )</li>
+<li>protobuf (https://code.google.com/p/protobuf/downloads/detail?name=protobuf-2.5.0.tar.bz2  )</li>
+<li>Development tool ( gcc , cmake , autoconf , zlib-dev libssl-dev, libtool  etc… )</li>
+<li>Openssl-dev , ant</li>
 </ul>
 
 
-<h3>Browser support</h3>
+<p>2) Hadoop Source download</p>
 
-<p>Hyde is a rather forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.</p>
+<div class="highlight"><pre><code class="bash">~<span class="o">]</span><span class="c"># svn co https://svn.apache.org/repos/asf/hadoop/common/tags/release-2.2.0</span>
+</code></pre></div>
 
-<h3>Documentation</h3>
 
-<p>Docs for setting up and customizing Hyde can be found in the <a href="https://github.com/mdo/hyde#readme">project readme on GitHub</a>.</p>
+<p>3) Maven install</p>
 
-<h3>Download</h3>
+<div class="highlight"><pre><code class="bash">wget http://apache.tt.co.kr/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz 
+tar xvzf apache-maven-3.1.1-bin.tar.gz 
+mv apache-maven-3.1.1 /usr/local/maven
+<span class="nb">export </span><span class="nv">MVN_HOME</span><span class="o">=</span>/usr/local/maven
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$MVN_HOME</span>/bin
+</code></pre></div>
 
-<p>Find out more and <a href="https://github.com/mdo/hyde">download a copy</a> today from GitHub.</p>
+
+<p>4) JDK install  (default)</p>
+
+<p>5) yum install openssl  or apt-get install openssl</p>
+
+<p>6) protobuf (https://code.google.com/p/protobuf/downloads/detail?name=protobuf-2.5.0.tar.bz2 )</p>
+
+<div class="highlight"><pre><code class="bash">wget https://protobuf.googlecode.com/files/protobuf-2.5.0.tar.bz2 
+tar xvzf protobuf-2.5.0.tar.bz2
+./configure <span class="p">;</span> make <span class="p">;</span> make install
+ldconfig
+</code></pre></div>
+
+
+<p>7) ant install (http://ant.apache.org/bindownload.cgi )
+    export path…</p>
+
+<p>8) Hadoop compile</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">cd  </span>Hadoop-src
+mvn compile –X
+mvn package –Pdist,native –DskipTests –Dtar
+</code></pre></div>
+
+
+<h3>Helpful Link</h3>
+
+<p>http://pravinchavan.wordpress.com/2013/04/14/building-apache-hadoop-from-source/</p>
+
+<p>http://www.micmiu.com/opensource/hadoop/hadoop-build-source-2-2-0/</p>
+
+<p>http://jugnu-life.blogspot.com/2013/09/build-and-compile-hadoop-from-source.html</p>
+
+<p>https://issues.apache.org/jira/browse/HADOOP-10117</p>
+
+<p>https://svn.apache.org/repos/asf/hadoop/common/trunk/BUILDING.txt</p>
+
+<p>http://wiki.apache.org/hadoop/HowToContribute</p>
+
+<p>http://blog.csdn.net/linshao_andylin/article/details/12307747</p>
+
+<div id="fb-root"></div>
+
+
+<p></p>
+
+<script>(function(d, s, id) { 
+  var js, fjs = d.getElementsByTagName(s)[0]; 
+  if (d.getElementById(id)) return; 
+  js = d.createElement(s); js.id = id; 
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=yahoting@gmail.com"; 
+  fjs.parentNode.insertBefore(js, fjs); 
+}(document, "script", "facebook-jssdk"));</script>
+
+
+<p></p>
 
 </div>
     <script type="text/javascript">
@@ -99,9 +158,9 @@
     
       <li>
         <h3>
-          <a href="/2014/03/02/hadoop/">
-            Hadoop src build (x64)
-            <small>02 Mar 2014</small>
+          <a href="/2013/12/28/hello-world/">
+            Hello, world!
+            <small>28 Dec 2013</small>
           </a>
         </h3>
       </li>
